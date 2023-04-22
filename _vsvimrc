@@ -1,0 +1,73 @@
+set incsearch
+set scrolloff=3
+set vsvim_cleanmacros
+
+set ignorecase
+set smartcase
+set nowrap
+
+"
+" Mappings
+"
+let mapleader = "<Space>"
+
+" Ensure same cursor position when leaving insert mode.
+" inoremap <Esc> <Esc>`^
+
+" First non-whitespace char on current line.
+noremap <A-h> ^
+
+" First column on current line.
+noremap <A-H> 0
+
+" Last non-whitespace char on current line.
+noremap <A-l> g_
+
+" Last column on current line.
+noremap <A-L> $
+
+noremap <C-j> }
+noremap <C-k> {
+
+noremap zj 13jzz13k
+noremap zk 13kzz13j
+
+" noremap <Space> i
+" noremap <S-Space> I
+
+nnoremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
+nnoremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
+inoremap <A-Down> <C-o>:vsc Edit.MoveSelectedLinesDown<CR>
+inoremap <A-Up> <C-o>:vsc Edit.MoveSelectedLinesUp<CR>
+vnoremap <A-j> :vsc Edit.MoveSelectedLinesDown<CR>
+vnoremap <A-k> :vsc Edit.MoveSelectedLinesUp<CR>
+
+noremap <C-/> :vsc Edit.CommentSelection<CR>
+noremap <C-?> :vsc Edit.UncommentSelection<CR>
+
+noremap <C-z> :vsc Edit.Undo<CR>
+noremap <C-y> :vsc Edit.Redo<CR>
+
+noremap <C-f> :vsc Edit.Find<CR>
+
+vnoremap <A-o> :vsc View.ToggleDesigner<CR>
+
+noremap <C-w> :vsc Window.CloseDocumentWindow<CR>
+
+noremap <C-p> :vsc Edit.GoToAll<CR>
+
+" Find next occurrence and repeat last action
+noremap <A-.> n.
+
+noremap <F1> :vsc Tools.ExternalCommand1<CR>
+noremap gr :vsc Tools.ExternalCommand2<CR>
+noremap \ :vsc ProjectandSolutionContextMenus.Project.ClangPowerTools.Format<CR>
+
+" visual block mode
+noremap vv <C-v>
+
+" Reverse pasting sense.
+" nnoremap p gP
+" nnoremap P gp
+" nnoremap gp P
+" nnoremap gP p
